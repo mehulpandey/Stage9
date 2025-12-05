@@ -1,0 +1,564 @@
+{
+  "name": "Stage9 Design System",
+  "version": "1.0.0",
+  "description": "Modern Noir Cinematic UI - A dark, premium design system blending sleek digital minimalism with subtle analog vibes",
+
+  "designPrinciples": {
+    "aesthetic": "Modern noir cinematic",
+    "philosophy": [
+      "Dark, moody, premium aesthetic with luxury typography",
+      "Generous negative space for breathing room",
+      "Glowing orange accents for interactive elements",
+      "Smooth, polished feel with rounded corners throughout",
+      "Subtle depth and layers through shadows and gradients",
+      "No emojis - use SVG icons instead",
+      "Professional, human-friendly visual arrangements"
+    ],
+    "interactionPatterns": [
+      "Glowing effects on hover and active states",
+      "Smooth transitions (200-300ms duration)",
+      "Scale transforms for emphasis (1.05-1.10x)",
+      "Orange glow shadows for selected/active states",
+      "Subtle animations (pulse, shimmer) for dynamic elements"
+    ]
+  },
+
+  "colorPalette": {
+    "blacks": {
+      "950": "#0a0a0a",
+      "900": "#141414",
+      "850": "#1a1a1a",
+      "800": "#2a2a2a",
+      "700": "#3a3a3a",
+      "600": "#5a5a5a"
+    },
+    "grays": {
+      "600": "#5a5a5a",
+      "500": "#a0a0a0",
+      "400": "#6a6a6a"
+    },
+    "orange": {
+      "glow": "#ff6b35",
+      "light": "#ff8a50",
+      "dim": "#cc5428",
+      "accent": "#ff5722",
+      "dark": "#ff4500"
+    },
+    "semantic": {
+      "success": "#4ade80",
+      "warning": "#fbbf24",
+      "error": "#ff6b6b",
+      "info": "#60a5fa"
+    },
+    "backgrounds": {
+      "surface": "#0a0a0a",
+      "surfaceElevated": "#141414",
+      "surfaceOverlay": "rgba(0, 0, 0, 0.8)",
+      "surfaceAccent": "#1a1a1a"
+    },
+    "text": {
+      "primary": "#ffffff",
+      "secondary": "#a0a0a0",
+      "tertiary": "#6a6a6a",
+      "accent": "#ff6b35"
+    },
+    "borders": {
+      "default": "#2a2a2a",
+      "accent": "#ff6b35"
+    }
+  },
+
+  "typography": {
+    "fontFamilies": {
+      "display": ["Playfair Display", "Georgia", "serif"],
+      "heading": ["Lora", "Georgia", "serif"],
+      "body": ["Aptos", "Segoe UI", "-apple-system", "sans-serif"],
+      "mono": ["JetBrains Mono", "monospace"]
+    },
+    "fontSizes": {
+      "h1": {
+        "size": "48px",
+        "lineHeight": "1.1",
+        "letterSpacing": "0.02em",
+        "usage": "Hero headings, page titles"
+      },
+      "h2": {
+        "size": "36px",
+        "lineHeight": "1.2",
+        "letterSpacing": "0.01em",
+        "usage": "Section headings"
+      },
+      "h3": {
+        "size": "24px",
+        "lineHeight": "1.3",
+        "letterSpacing": "0.01em",
+        "usage": "Subsection headings"
+      },
+      "h4": {
+        "size": "18px",
+        "lineHeight": "1.4",
+        "letterSpacing": "0",
+        "usage": "Card headings, small section titles"
+      },
+      "body": {
+        "size": "16px",
+        "lineHeight": "1.6",
+        "letterSpacing": "0",
+        "usage": "Default body text"
+      },
+      "sm": {
+        "size": "14px",
+        "lineHeight": "1.5",
+        "letterSpacing": "0",
+        "usage": "Small text, labels"
+      },
+      "xs": {
+        "size": "12px",
+        "lineHeight": "1.4",
+        "letterSpacing": "0",
+        "usage": "Captions, metadata"
+      }
+    },
+    "typographyRules": {
+      "h1": "font-display text-h1 font-bold",
+      "h2": "font-heading text-h2 font-semibold",
+      "h3": "font-heading text-h3 font-semibold",
+      "h4": "font-heading text-h4 font-medium",
+      "p": "text-body text-secondary"
+    }
+  },
+
+  "spacing": {
+    "scale": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px",
+      "3xl": "64px",
+      "4xl": "96px",
+      "5xl": "128px"
+    },
+    "usage": {
+      "componentPadding": "md to 2xl",
+      "sectionSpacing": "3xl to 4xl",
+      "elementGap": "sm to lg",
+      "pageMargins": "2xl to 3xl"
+    }
+  },
+
+  "borderRadius": {
+    "scale": {
+      "none": "0px",
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "xl": "16px",
+      "2xl": "24px",
+      "3xl": "32px",
+      "full": "9999px"
+    },
+    "usage": {
+      "buttons": "lg to xl",
+      "cards": "xl to 2xl",
+      "modals": "2xl",
+      "inputs": "lg",
+      "badges": "md to lg",
+      "avatars": "full"
+    }
+  },
+
+  "shadows": {
+    "elevation": {
+      "small": "0 2px 8px rgba(0, 0, 0, 0.4)",
+      "medium": "0 10px 30px rgba(0, 0, 0, 0.6)",
+      "large": "0 20px 60px rgba(0, 0, 0, 0.8)"
+    },
+    "glow": {
+      "orange": "0 0 20px rgba(255, 107, 53, 0.5)",
+      "orangeIntense": "0 0 40px rgba(255, 107, 53, 0.8), 0 0 80px rgba(255, 107, 53, 0.3)",
+      "white": "0 0 20px rgba(255, 255, 255, 0.2)",
+      "whiteIntense": "0 0 40px rgba(255, 255, 255, 0.4)",
+      "inset": "inset 0 0 20px rgba(255, 107, 53, 0.1)"
+    },
+    "usage": {
+      "cards": "small to medium",
+      "modals": "large",
+      "activeElements": "glow orange",
+      "hoverStates": "glow orange intense"
+    }
+  },
+
+  "animations": {
+    "timing": {
+      "fast": "150ms",
+      "normal": "200ms",
+      "slow": "300ms"
+    },
+    "easings": {
+      "easeOutQuart": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      "easeSmooth": "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    },
+    "keyframes": {
+      "pulse": {
+        "description": "Subtle opacity pulsing",
+        "values": "opacity 1 -> 0.5 -> 1",
+        "duration": "2s",
+        "usage": "Loading states, indicators"
+      },
+      "glow": {
+        "description": "Box shadow glow animation",
+        "values": "shadow-glow-orange -> shadow-glow-orange-intense -> shadow-glow-orange",
+        "duration": "2s",
+        "usage": "Active elements, focus states"
+      },
+      "glowIntense": {
+        "description": "Intense glow with inset",
+        "duration": "1.5s",
+        "usage": "Selected elements, primary actions"
+      },
+      "pulseGlow": {
+        "description": "Expanding glow ring",
+        "duration": "2s",
+        "usage": "Notifications, new items"
+      },
+      "shimmer": {
+        "description": "Subtle opacity shimmer",
+        "duration": "3s",
+        "usage": "Subtle emphasis"
+      },
+      "bounceSubtle": {
+        "description": "Subtle vertical bounce (-2px)",
+        "duration": "1s",
+        "usage": "Playful interactions"
+      }
+    }
+  },
+
+  "components": {
+    "buttons": {
+      "primary": {
+        "classes": "px-2xl py-md border-2 border-orange-glow text-primary font-medium rounded-lg hover:bg-black-800 hover:shadow-glow-orange hover:scale-105 transition-all duration-300 active:shadow-glow-orange-intense active:scale-100",
+        "states": {
+          "default": "Border orange glow, transparent background",
+          "hover": "Dark background, orange glow shadow, scale 1.05",
+          "active": "Intense glow shadow, scale 1.0",
+          "disabled": "Opacity 0.5, cursor not-allowed"
+        }
+      },
+      "secondary": {
+        "classes": "px-2xl py-md border border-black-700 text-secondary font-medium rounded-lg hover:border-orange-glow hover:text-primary transition-all duration-300",
+        "states": {
+          "default": "Border gray, secondary text",
+          "hover": "Border orange, primary text",
+          "disabled": "Opacity 0.5"
+        }
+      },
+      "danger": {
+        "classes": "px-2xl py-md bg-error text-primary font-medium rounded-lg hover:bg-error/80 hover:shadow-glow-orange transition-all duration-300",
+        "states": {
+          "default": "Error background",
+          "hover": "Slightly transparent, glow shadow"
+        }
+      },
+      "ghost": {
+        "classes": "px-2xl py-md text-secondary font-medium rounded-lg hover:bg-black-850 hover:text-primary transition-all duration-300",
+        "states": {
+          "default": "Transparent, secondary text",
+          "hover": "Dark background, primary text"
+        }
+      },
+      "icon": {
+        "classes": "w-14 h-14 rounded-full bg-black-850 border-2 border-orange-glow hover:shadow-glow-orange hover:bg-black-800 transition-all duration-300 flex items-center justify-center",
+        "usage": "Icon-only buttons, play buttons"
+      },
+      "playButton": {
+        "classes": "w-20 h-20 rounded-full bg-black-850 border-2 border-orange-glow hover:shadow-glow-orange-intense hover:scale-110 transition-all duration-300 flex items-center justify-center group",
+        "iconClasses": "w-8 h-8 text-orange-glow ml-1 group-hover:text-orange-light",
+        "usage": "Large play/pause buttons in video players"
+      }
+    },
+
+    "forms": {
+      "textInput": {
+        "classes": "w-full px-lg py-md bg-black-850 border border-black-700 rounded-lg text-primary placeholder:text-tertiary focus:border-orange-glow focus:outline-none transition-all duration-300",
+        "states": {
+          "default": "Dark background, gray border",
+          "focus": "Orange glow border",
+          "error": "Red border",
+          "disabled": "Opacity 0.5"
+        }
+      },
+      "textarea": {
+        "classes": "w-full px-lg py-md bg-black-850 border border-black-700 rounded-lg text-primary placeholder:text-tertiary focus:border-orange-glow focus:outline-none transition-all duration-300 resize-none",
+        "usage": "Multi-line text input"
+      },
+      "select": {
+        "classes": "w-full px-lg py-md bg-black-850 border border-black-700 rounded-lg text-primary focus:border-orange-glow focus:outline-none transition-all duration-300 cursor-pointer",
+        "usage": "Dropdown selections"
+      },
+      "slider": {
+        "trackClasses": "w-full h-1 bg-black-800 rounded-full overflow-hidden",
+        "fillClasses": "h-full bg-orange-glow transition-all",
+        "thumbClasses": "w-4 h-4 bg-orange-glow rounded-full",
+        "usage": "Range inputs, volume controls"
+      },
+      "toggle": {
+        "classes": "relative w-12 h-6 bg-black-800 rounded-full transition-all cursor-pointer",
+        "activeClasses": "bg-orange-glow",
+        "thumbClasses": "absolute w-5 h-5 bg-primary rounded-full top-0.5 transition-all",
+        "usage": "Boolean switches"
+      }
+    },
+
+    "cards": {
+      "default": {
+        "classes": "bg-black-850 border border-black-800 rounded-xl p-2xl hover:border-orange-glow hover:shadow-glow-orange transition-all duration-300",
+        "usage": "General purpose cards"
+      },
+      "interactive": {
+        "classes": "bg-black-850 border border-black-800 rounded-xl p-2xl hover:border-orange-glow hover:shadow-glow-orange hover:scale-105 transition-all duration-300 cursor-pointer",
+        "usage": "Clickable cards, selectable items"
+      },
+      "feature": {
+        "structure": [
+          "Icon box: w-12 h-12 rounded-lg bg-gradient-to-br from-orange-glow to-orange-dim flex items-center justify-center text-black-950",
+          "Heading: font-heading text-lg mb-md text-primary",
+          "Description: text-sm text-secondary"
+        ],
+        "classes": "bg-black-850 border border-black-800 rounded-xl p-2xl hover:border-orange-glow hover:shadow-glow-orange hover:scale-105 transition-all duration-300",
+        "usage": "Feature highlights, benefit cards"
+      },
+      "project": {
+        "structure": [
+          "Thumbnail: aspect-video bg-gradient-to-br from-black-800 to-black-900 rounded-lg",
+          "Title: font-heading text-primary",
+          "Metadata: text-xs text-tertiary",
+          "Status badge: px-sm py-xs rounded bg-orange-glow/20 text-orange-glow"
+        ],
+        "usage": "Project listings, video cards"
+      }
+    },
+
+    "modals": {
+      "overlay": {
+        "classes": "fixed inset-0 bg-surface-overlay backdrop-blur-sm z-40",
+        "usage": "Modal backdrop"
+      },
+      "container": {
+        "classes": "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black-900 border border-black-700 rounded-2xl shadow-large z-50 max-w-2xl w-full p-3xl",
+        "usage": "Modal content container"
+      },
+      "header": {
+        "classes": "flex items-center justify-between mb-2xl",
+        "titleClasses": "text-h3 font-heading text-primary"
+      },
+      "closeButton": {
+        "classes": "w-8 h-8 rounded-lg bg-black-850 border border-black-700 hover:border-orange-glow transition-all flex items-center justify-center",
+        "iconClasses": "w-4 h-4 text-secondary"
+      }
+    },
+
+    "badges": {
+      "default": {
+        "classes": "px-md py-xs text-sm rounded-lg bg-black-850 text-secondary border border-black-700",
+        "usage": "Status indicators, tags"
+      },
+      "status": {
+        "processing": "px-md py-xs text-sm rounded-lg bg-orange-glow/20 text-orange-glow border border-orange-glow/30",
+        "completed": "px-md py-xs text-sm rounded-lg bg-success/20 text-success border border-success/30",
+        "failed": "px-md py-xs text-sm rounded-lg bg-error/20 text-error border border-error/30",
+        "ready": "px-md py-xs text-sm rounded-lg bg-info/20 text-info border border-info/30"
+      },
+      "pro": {
+        "classes": "px-sm py-xs text-xs bg-orange-glow text-black-950 rounded font-medium",
+        "usage": "Premium feature indicators"
+      }
+    },
+
+    "navigation": {
+      "sidebar": {
+        "container": {
+          "expandedWidth": "256px",
+          "collapsedWidth": "80px",
+          "classes": "relative bg-black-950 border-r border-black-800 transition-all duration-300",
+          "minHeight": "600px"
+        },
+        "logo": {
+          "classes": "font-display text-2xl text-primary",
+          "usage": "Stage9 branding"
+        },
+        "collapseButton": {
+          "classes": "p-sm rounded-lg bg-black-850 border border-black-700 hover:border-orange-glow transition-all",
+          "iconClasses": "w-4 h-4 text-secondary transition-transform"
+        },
+        "navItem": {
+          "defaultClasses": "w-full flex items-center gap-md px-md py-sm rounded-lg transition-all duration-200 text-secondary hover:bg-black-850 hover:text-primary border border-transparent",
+          "activeClasses": "w-full flex items-center gap-md px-md py-sm rounded-lg transition-all duration-200 bg-black-850 border border-orange-glow text-primary shadow-glow-orange",
+          "iconClasses": "w-5 h-5 flex-shrink-0",
+          "activeIconClasses": "w-5 h-5 flex-shrink-0 text-orange-glow"
+        },
+        "userSection": {
+          "position": "absolute bottom-0 left-0 right-0",
+          "classes": "border-t border-black-800 bg-black-950",
+          "creditsBar": {
+            "container": "bg-black-850 rounded-lg p-md border border-black-700",
+            "label": "text-xs text-tertiary",
+            "value": "text-xs font-mono text-orange-glow",
+            "bar": "h-1 bg-black-800 rounded-full overflow-hidden",
+            "fill": "h-full bg-orange-glow"
+          },
+          "profile": {
+            "avatar": "w-10 h-10 rounded-full bg-gradient-to-br from-orange-glow to-orange-dim flex items-center justify-center text-sm font-heading text-black-950",
+            "name": "text-sm font-medium text-primary truncate",
+            "plan": "text-xs text-tertiary"
+          }
+        }
+      }
+    },
+
+    "timeline": {
+      "container": {
+        "classes": "bg-black-900 border border-black-800 rounded-xl overflow-hidden",
+        "layout": "grid md:grid-cols-2 gap-0"
+      },
+      "videoPreview": {
+        "classes": "aspect-video bg-gradient-to-br from-black-850 to-black-900 rounded-lg border border-black-700 flex items-center justify-center relative overflow-hidden",
+        "progressBar": "absolute bottom-0 left-0 right-0 h-0.5 bg-black-800"
+      },
+      "playbackControls": {
+        "rewindButton": "w-8 h-8 rounded-md bg-black-850 border border-black-700 hover:border-orange-glow transition-all flex items-center justify-center",
+        "playButton": "w-10 h-10 rounded-full bg-black-850 border-2 border-orange-glow hover:shadow-glow-orange transition-all flex items-center justify-center",
+        "forwardButton": "w-8 h-8 rounded-md bg-black-850 border border-black-700 hover:border-orange-glow transition-all flex items-center justify-center"
+      },
+      "toolbar": {
+        "button": "p-sm rounded-md bg-black-850 border border-black-700 hover:border-orange-glow transition-all",
+        "exportButton": "px-lg py-sm rounded-md bg-orange-glow text-black-950 text-xs font-medium hover:shadow-glow-orange transition-all"
+      },
+      "timelineTrack": {
+        "container": "relative bg-black-850 rounded-md p-1 border border-black-700",
+        "segment": {
+          "defaultClasses": "relative rounded p-sm cursor-pointer transition-all duration-200 bg-black-800 border border-black-600 hover:border-orange-glow/50",
+          "selectedClasses": "relative rounded p-sm cursor-pointer transition-all duration-200 bg-black-850 border border-orange-glow shadow-glow-orange"
+        },
+        "playhead": {
+          "line": "absolute top-0 bottom-0 w-px bg-orange-glow pointer-events-none z-20",
+          "marker": "absolute -top-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-orange-glow rounded-full"
+        }
+      },
+      "segmentDetails": {
+        "heading": "text-sm font-heading text-primary",
+        "text": "text-xs text-secondary leading-relaxed",
+        "toolButton": "p-xs rounded bg-black-850 border border-black-700 hover:border-orange-glow transition-all",
+        "deleteButton": "p-xs rounded bg-black-850 border border-black-700 hover:border-red-500 transition-all"
+      }
+    },
+
+    "states": {
+      "loading": {
+        "spinner": "w-8 h-8 border-2 border-black-700 border-t-orange-glow rounded-full animate-spin",
+        "skeleton": "bg-black-850 rounded animate-pulse"
+      },
+      "empty": {
+        "container": "text-center py-4xl",
+        "icon": "w-16 h-16 mx-auto text-tertiary mb-lg",
+        "title": "text-h4 font-heading text-secondary mb-md",
+        "description": "text-sm text-tertiary"
+      },
+      "error": {
+        "container": "bg-error/10 border border-error/30 rounded-xl p-2xl",
+        "icon": "w-12 h-12 text-error mb-lg",
+        "title": "text-h4 font-heading text-error mb-md",
+        "message": "text-sm text-secondary"
+      }
+    }
+  },
+
+  "layoutPatterns": {
+    "page": {
+      "container": "min-h-screen bg-surface",
+      "header": "border-b border-black-800 p-2xl",
+      "main": "p-3xl max-w-7xl mx-auto",
+      "footer": "border-t border-black-800 p-2xl"
+    },
+    "grid": {
+      "twoColumn": "grid md:grid-cols-2 gap-2xl",
+      "threeColumn": "grid md:grid-cols-3 gap-2xl",
+      "fourColumn": "grid md:grid-cols-4 gap-2xl"
+    },
+    "flex": {
+      "spaceBetween": "flex items-center justify-between",
+      "centered": "flex items-center justify-center",
+      "stack": "flex flex-col gap-md"
+    }
+  },
+
+  "iconography": {
+    "style": "Outline SVG icons with 2px stroke width",
+    "sizes": {
+      "sm": "w-4 h-4",
+      "md": "w-5 h-5",
+      "lg": "w-6 h-6",
+      "xl": "w-8 h-8"
+    },
+    "usage": "Use SVG icons from Heroicons or similar libraries. Never use emojis.",
+    "colors": {
+      "default": "text-secondary",
+      "active": "text-orange-glow",
+      "hover": "group-hover:text-orange-light"
+    }
+  },
+
+  "accessibility": {
+    "contrast": "Ensure minimum 4.5:1 contrast ratio for text",
+    "focusStates": "All interactive elements must have visible focus states with orange glow border",
+    "keyboardNav": "All interactive elements accessible via keyboard",
+    "aria": "Use proper ARIA labels for icon buttons and complex components",
+    "motion": "Respect prefers-reduced-motion for animations"
+  },
+
+  "responsiveness": {
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "guidelines": [
+      "Mobile-first approach",
+      "Sidebar collapses to icons on mobile",
+      "Grid layouts stack on small screens",
+      "Touch targets minimum 44x44px",
+      "Generous spacing on mobile for fat fingers"
+    ]
+  },
+
+  "implementationGuidelines": {
+    "fileStructure": "Components in /components, Pages in /app, Styles in Tailwind config",
+    "naming": "Use descriptive, semantic component names (e.g., FeatureCard, ProjectCard)",
+    "composition": "Compose complex components from design system primitives",
+    "consistency": "Always reference this design system when building new features",
+    "extensions": "If new patterns are needed, add them to this file first",
+    "showcase": "New components should be added to design-system-showcase for documentation"
+  },
+
+  "tailwindConfig": {
+    "reference": "See /design-system-showcase/tailwind.config.js for complete Tailwind configuration",
+    "customUtilities": [
+      "Custom color scale for blacks and oranges",
+      "Custom font families (display, heading, body, mono)",
+      "Custom spacing scale (xs to 5xl)",
+      "Custom border radius (sm to 3xl)",
+      "Custom shadows (elevation + glow)",
+      "Custom animations (pulse, glow, shimmer, etc.)"
+    ]
+  },
+
+  "exampleUsage": {
+    "buttonExample": "<button className=\"px-2xl py-md border-2 border-orange-glow text-primary font-medium rounded-lg hover:bg-black-800 hover:shadow-glow-orange hover:scale-105 transition-all duration-300\">Click Me</button>",
+    "cardExample": "<div className=\"bg-black-850 border border-black-800 rounded-xl p-2xl hover:border-orange-glow hover:shadow-glow-orange transition-all duration-300\">Card Content</div>",
+    "inputExample": "<input className=\"w-full px-lg py-md bg-black-850 border border-black-700 rounded-lg text-primary placeholder:text-tertiary focus:border-orange-glow focus:outline-none transition-all duration-300\" />"
+  }
+}

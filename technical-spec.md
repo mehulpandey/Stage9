@@ -122,49 +122,47 @@
 
 ### 1.2 Authentication & Security
 
-**Strategy: JWT Bearer Tokens + Refresh Tokens (Supabase Auth)**
+**Strategy: Supabase Auth (Cookie-based Sessions)**
 
-**Token Flow**:
-1. **Login** (`POST /api/auth/login`)
-   - User provides email/password or OAuth provider credentials
-   - Server validates and returns:
-     - `access_token` (expires in 1 hour, includes user ID and role)
-     - `refresh_token` (expires in 7 days, used to obtain new access tokens)
-   - Tokens stored in secure HTTP-only cookies (prevents XSS attacks)
+**Authentication Flow**:
+1. **Signup** (Client-side using Supabase client)
+   - User provides email/password
+   - `supabase.auth.signUp({ email, password })`
+   - Supabase Auth creates user in `auth.users` table
+   - Database trigger auto-creates corresponding record in `public.users` table
+   - Session stored in secure HTTP-only cookies automatically
 
-2. **API Requests**
-   - Include `Authorization: Bearer {access_token}` header
-   - Server validates JWT signature + expiration on every request
-   - Middleware extracts user ID from token
+2. **Login** (Client-side using Supabase client)
+   - User provides email/password
+   - `supabase.auth.signInWithPassword({ email, password })`
+   - Supabase Auth validates credentials
+   - Session stored in secure HTTP-only cookies automatically
 
-3. **Token Refresh** (`POST /api/auth/refresh`)
-   - When access_token expires, client calls refresh endpoint
-   - Uses refresh_token to obtain new access_token
-   - Frontend handles transparently (automatic retry on 401)
-   - Refresh_token also rotated on each refresh (security best practice)
+3. **Session Management**
+   - Middleware uses `@supabase/ssr` to handle session refresh
+   - Sessions automatically refreshed on each request
+   - Frontend pages check session: `supabase.auth.getSession()`
+   - Protected pages redirect to `/auth/login` if no session
 
-4. **Logout** (`POST /api/auth/logout`)
-   - Revokes refresh_token server-side (stored in blacklist/database)
+4. **Logout** (Client-side using Supabase client)
+   - `supabase.auth.signOut()`
    - Clears cookies client-side
-   - User must log in again to get new tokens
+   - Redirects to login page
 
-**OAuth Integration** (Google, GitHub, optional):
+**OAuth Integration** (Google, GitHub - optional for MVP):
 - Supabase Auth handles entire OAuth flow
-- Returns same JWT tokens on successful authentication
-- No custom OAuth code needed for MVP
+- Configure providers in Supabase dashboard
+- Use `supabase.auth.signInWithOAuth({ provider: 'google' })`
 
-**Protected vs Public Endpoints**:
+**Protected Routes**:
+- All `/dashboard/*` pages
+- Middleware redirects to `/auth/login` if no session
 
-**Protected** (require valid access_token):
-- All `/api/projects/*` endpoints
-- All `/api/user/*` endpoints
-- `/api/auth/logout`
-- `/api/auth/refresh`
-
-**Public** (no auth required):
-- `GET /api/health` (status check)
-- `POST /api/auth/signup`
-- `POST /api/auth/login`
+**Public Routes**:
+- `/` (landing page)
+- `/auth/login`
+- `/auth/signup`
+- `/api/health` (status check)
 
 **Implementation Notes**:
 - Use Next.js middleware for auth verification on protected routes

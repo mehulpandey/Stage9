@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black-950 text-white font-body;
+  }
+
+  h1 {
+    @apply font-display text-5xl font-bold;
+  }
+
+  h2 {
+    @apply font-heading text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply font-heading text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply font-heading text-lg font-medium;
+  }
+}
+
+@layer utilities {
+  .text-primary {
+    @apply text-white;
+  }
+
+  .text-secondary {
+    @apply text-gray-500;
+  }
+
+  .text-tertiary {
+    @apply text-gray-400;
+  }
+
+  .text-accent {
+    @apply text-orange-glow;
+  }
+
+  .bg-surface {
+    @apply bg-black-950;
+  }
+
+  .bg-surface-elevated {
+    @apply bg-black-900;
+  }
+
+  .bg-surface-accent {
+    @apply bg-black-850;
+  }
+
+  .border-default {
+    @apply border-black-800;
+  }
+
+  .border-accent {
+    @apply border-orange-glow;
+  }
+}

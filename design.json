@@ -1,0 +1,559 @@
+{
+  "metadata": {
+    "name": "Stage9 Design System",
+    "version": "1.0.0",
+    "aesthetic": "Modern Noir Cinematic",
+    "tagline": "Dark, luxurious digital minimalism with analog warmth. Premium, moody, unforgettable.",
+    "inspiration": "High-end music player UI with sci-fi refinement"
+  },
+
+  "designPrinciples": {
+    "philosophy": [
+      "Luxury through restraint: Use generous negative space to let elements breathe",
+      "Cinematic depth: Layer elements with shadows and subtle depth cues",
+      "Analog warmth in digital space: Orange glow suggests warmth, nostalgia, vitality",
+      "Form follows function: Every visual element serves a purpose",
+      "Asymmetrical balance: Avoid centered, symmetrical layouts—embrace diagonal flow",
+      "Moody and intentional: Every choice should feel deliberate, not arbitrary"
+    ],
+    "accessibility": "High contrast with glowing accents ensures readability; motion respects prefers-reduced-motion",
+    "performance": "CSS-first animations, minimal JavaScript; optimize SVG and image assets"
+  },
+
+  "colorPalette": {
+    "primary": {
+      "black": "#0a0a0a",
+      "charcoal": "#1a1a1a",
+      "darkGray": "#2a2a2a",
+      "mediumGray": "#3a3a3a",
+      "lightGray": "#5a5a5a"
+    },
+    "accent": {
+      "orangeGlow": "#ff6b35",
+      "orangeLight": "#ff8a50",
+      "orangeDim": "#cc5428",
+      "orange": "#ff5722"
+    },
+    "semantic": {
+      "success": "#4ade80",
+      "warning": "#fbbf24",
+      "error": "#ff6b6b",
+      "info": "#60a5fa"
+    },
+    "background": {
+      "surface": "#0a0a0a",
+      "surfaceElevated": "#141414",
+      "surfaceOverlay": "rgba(0, 0, 0, 0.8)",
+      "accent": "#1a1a1a"
+    },
+    "text": {
+      "primary": "#ffffff",
+      "secondary": "#a0a0a0",
+      "tertiary": "#6a6a6a",
+      "accent": "#ff6b35"
+    },
+    "cssVariables": {
+      "description": "Use CSS custom properties for theme consistency",
+      "example": "--color-orange-glow: #ff6b35; --color-black: #0a0a0a; --color-gray-light: #a0a0a0;"
+    }
+  },
+
+  "typography": {
+    "philosophy": "Serif display fonts paired with refined sans-serif for a luxury, editorial aesthetic",
+    "fontStack": {
+      "display": {
+        "name": "Playfair Display or Crimson Text",
+        "weight": "600-700",
+        "usage": "Page titles, major headings, brand statements",
+        "fallback": "Georgia, serif",
+        "characteristi": "High contrast, elegant, distinctly serif with personality"
+      },
+      "heading": {
+        "name": "Lora or EB Garamond",
+        "weight": "500-600",
+        "usage": "Section headings, component titles",
+        "fallback": "Georgia, serif",
+        "characteristics": "Refined serif, less bold than display but maintains elegance"
+      },
+      "body": {
+        "name": "Aptos or Segoe UI",
+        "weight": "400-500",
+        "usage": "Body text, UI labels, metadata",
+        "fallback": "sans-serif",
+        "characteristics": "Clean, modern sans-serif with excellent readability at small sizes"
+      },
+      "mono": {
+        "name": "JetBrains Mono or IBM Plex Mono",
+        "weight": "400",
+        "usage": "Code, timestamps, numeric data",
+        "fallback": "monospace",
+        "characteristics": "Monospaced for technical elements"
+      }
+    },
+    "sizing": {
+      "h1": "48px (display), 700, line-height 1.1",
+      "h2": "36px (heading), 600, line-height 1.2",
+      "h3": "24px (heading), 600, line-height 1.3",
+      "h4": "18px (heading), 500, line-height 1.4",
+      "body": "16px (body), 400, line-height 1.6",
+      "small": "14px (body), 400, line-height 1.5",
+      "xs": "12px (body), 400, line-height 1.4"
+    },
+    "spacing": {
+      "letterSpacing": {
+        "display": "0.02em (wide, luxury feel)",
+        "heading": "0.01em (subtle)",
+        "body": "0em (standard)",
+        "label": "0.05em (all caps labels, spacious)"
+      },
+      "lineHeight": {
+        "tight": "1.1 (headings)",
+        "normal": "1.5 (body text)",
+        "relaxed": "1.8 (editorial content)"
+      }
+    }
+  },
+
+  "spacing": {
+    "philosophy": "Generous negative space is a design feature, not wasted area. Use multiples of 8px for consistency.",
+    "scale": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px",
+      "3xl": "64px",
+      "4xl": "96px",
+      "5xl": "128px"
+    },
+    "padding": {
+      "compact": "12px 16px",
+      "normal": "16px 24px",
+      "relaxed": "24px 32px",
+      "generous": "32px 48px"
+    },
+    "margin": {
+      "betweenSections": "64px or 96px (large gaps emphasize importance)",
+      "betweenElements": "16px to 32px",
+      "afterHeading": "24px"
+    },
+    "gridBases": "8px (mobile) to 16px (desktop); breakpoints at 640px, 1024px, 1280px"
+  },
+
+  "components": {
+    "buttons": {
+      "primary": {
+        "style": "Minimal with orange border/glow on hover",
+        "backgroundColor": "transparent",
+        "borderColor": "#ff6b35",
+        "borderWidth": "2px",
+        "textColor": "#ffffff",
+        "padding": "12px 32px",
+        "borderRadius": "0px (sharp edges for digital aesthetic)",
+        "fontSize": "14px (body font)",
+        "fontWeight": "500",
+        "hover": "background-color: rgba(255, 107, 53, 0.1), box-shadow: 0 0 20px rgba(255, 107, 53, 0.5)",
+        "active": "background-color: rgba(255, 107, 53, 0.2), box-shadow: 0 0 30px rgba(255, 107, 53, 0.7)",
+        "transition": "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      },
+      "secondary": {
+        "style": "Ghost button with subtle text, no border",
+        "backgroundColor": "transparent",
+        "textColor": "#a0a0a0",
+        "padding": "12px 24px",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "hover": "color: #ffffff, background-color: rgba(255, 255, 255, 0.05)",
+        "transition": "all 0.3s ease"
+      },
+      "tertiary": {
+        "style": "Minimal icon button, no background",
+        "size": "40px square",
+        "textColor": "#a0a0a0",
+        "hover": "color: #ff6b35, scale: 1.1",
+        "transition": "all 0.2s ease"
+      },
+      "playButton": {
+        "style": "Large circular play button (prominent control)",
+        "diameter": "80px",
+        "backgroundColor": "#ffffff",
+        "borderRadius": "50%",
+        "icon": "centered play triangle",
+        "iconColor": "#0a0a0a",
+        "hover": "box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), scale: 1.05",
+        "active": "box-shadow: 0 0 60px rgba(255, 255, 255, 0.8)",
+        "transition": "all 0.3s ease"
+      }
+    },
+
+    "progressBar": {
+      "style": "Minimal line with glowing accent",
+      "backgroundColor": "#2a2a2a",
+      "fillColor": "#ff6b35",
+      "height": "3px",
+      "borderRadius": "2px",
+      "glow": "box-shadow: 0 0 8px rgba(255, 107, 53, 0.6) on fill",
+      "thumb": "Small circle at current position, glowing orange",
+      "thumbRadius": "6px",
+      "hover": "expand to 6px height, enhance glow",
+      "transition": "all 0.2s linear"
+    },
+
+    "inputs": {
+      "text": {
+        "backgroundColor": "#1a1a1a",
+        "borderColor": "#2a2a2a",
+        "borderWidth": "1px",
+        "borderRadius": "0px",
+        "padding": "12px 16px",
+        "textColor": "#ffffff",
+        "fontSize": "16px",
+        "placeholderColor": "#6a6a6a",
+        "focusBorder": "#ff6b35",
+        "focusGlow": "box-shadow: 0 0 12px rgba(255, 107, 53, 0.3)",
+        "transition": "all 0.3s ease"
+      },
+      "range": {
+        "style": "Custom slider with orange track fill",
+        "backgroundColor": "#2a2a2a",
+        "fillColor": "#ff6b35",
+        "thumbColor": "#ffffff",
+        "thumbRadius": "8px",
+        "height": "4px",
+        "hover": "thumb scale to 1.2x, enhance glow"
+      }
+    },
+
+    "cards": {
+      "default": {
+        "backgroundColor": "#141414",
+        "borderColor": "#2a2a2a",
+        "borderWidth": "1px",
+        "borderRadius": "0px",
+        "padding": "24px",
+        "shadow": "none (keep flat with borders)",
+        "hover": "border-color: #ff6b35, box-shadow: 0 0 20px rgba(255, 107, 53, 0.15)",
+        "transition": "all 0.3s ease"
+      },
+      "elevated": {
+        "backgroundColor": "#1a1a1a",
+        "shadow": "0 10px 40px rgba(0, 0, 0, 0.8)",
+        "borderColor": "#2a2a2a",
+        "padding": "32px"
+      }
+    },
+
+    "badges": {
+      "default": {
+        "backgroundColor": "#2a2a2a",
+        "textColor": "#a0a0a0",
+        "padding": "6px 12px",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "borderRadius": "0px",
+        "letterSpacing": "0.05em"
+      },
+      "accent": {
+        "backgroundColor": "rgba(255, 107, 53, 0.15)",
+        "textColor": "#ff6b35",
+        "border": "1px solid #ff6b35",
+        "padding": "6px 12px",
+        "fontSize": "12px"
+      }
+    },
+
+    "labels": {
+      "style": "All caps, letter-spaced, small font",
+      "fontSize": "10px or 12px (body font)",
+      "fontWeight": "500",
+      "letterSpacing": "0.08em",
+      "textColor": "#6a6a6a (normal), #ff6b35 (accent)",
+      "textTransform": "uppercase",
+      "marginBottom": "8px"
+    },
+
+    "dividers": {
+      "horizontal": {
+        "height": "1px",
+        "backgroundColor": "#2a2a2a",
+        "margin": "32px 0"
+      },
+      "accent": {
+        "height": "2px",
+        "backgroundColor": "#ff6b35",
+        "width": "40px to 80px",
+        "margin": "16px 0"
+      }
+    },
+
+    "modals": {
+      "backgroundColor": "#0a0a0a",
+      "border": "1px solid #2a2a2a",
+      "borderRadius": "0px",
+      "padding": "32px to 48px",
+      "shadow": "0 20px 60px rgba(0, 0, 0, 0.9)",
+      "backdropColor": "rgba(0, 0, 0, 0.85)"
+    },
+
+    "dropdown": {
+      "backgroundColor": "#141414",
+      "border": "1px solid #2a2a2a",
+      "borderRadius": "0px",
+      "padding": "8px",
+      "itemPadding": "12px 16px",
+      "hover": "background-color: #2a2a2a, color: #ff6b35",
+      "shadow": "0 10px 40px rgba(0, 0, 0, 0.8)"
+    },
+
+    "tabs": {
+      "backgroundColor": "transparent",
+      "inactiveColor": "#6a6a6a",
+      "activeColor": "#ffffff",
+      "activeBorderColor": "#ff6b35",
+      "activeBorderWidth": "2px (bottom border)",
+      "padding": "12px 0",
+      "fontSize": "14px (body font)",
+      "fontWeight": "500"
+    }
+  },
+
+  "layout": {
+    "philosophy": "Asymmetrical, cinematic composition with diagonal flow. Avoid centered, symmetrical layouts.",
+    "gridSystem": {
+      "desktop": "12-column grid with 24px gutters",
+      "tablet": "8-column grid with 16px gutters",
+      "mobile": "4-column grid with 8px gutters"
+    },
+    "maxWidth": "1400px (generous, leaves breathing room)",
+    "containerPadding": "24px (mobile) to 48px (desktop)",
+    "compositionalPatterns": [
+      "Hero (large element left, content right)",
+      "Split screen (contrasting sections, asymmetrical sizing)",
+      "Overlapping elements (diagonal flow, depth)",
+      "Sidebar navigation (left or right, wide negative space)",
+      "Card grid (3-4 columns desktop, 2 tablet, 1 mobile)"
+    ],
+    "alignment": "Left-aligned text is default; center only for major display statements",
+    "standardPageLayouts": {
+      "description": "Consistent layout patterns for all application pages",
+      "header": {
+        "container": "max-w-6xl mx-auto px-2xl py-lg",
+        "logo": "text-2xl font-display font-bold",
+        "border": "border-b border-black-800 bg-black-900"
+      },
+      "mainContent": {
+        "container": "max-w-6xl mx-auto px-2xl py-3xl",
+        "pageHeader": {
+          "marginBottom": "mb-2xl",
+          "title": "text-3xl font-display font-bold text-primary mb-sm",
+          "subtitle": "text-base text-secondary"
+        }
+      },
+      "cardContainers": {
+        "default": "bg-black-850 border border-black-800 rounded-xl p-2xl",
+        "compact": "bg-black-850 border border-black-800 rounded-xl p-xl"
+      },
+      "buttonSpacing": {
+        "containerGap": "space-x-md",
+        "topMargin": "pt-lg",
+        "padding": "px-2xl py-md"
+      }
+    }
+  },
+
+  "motion": {
+    "philosophy": "Purposeful, cinematic animations. One orchestrated page load with staggered reveals beats scattered micro-interactions.",
+    "transitions": {
+      "fast": "0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) (interactive feedback)",
+      "normal": "0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) (standard transitions)",
+      "slow": "0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) (dramatic reveals)"
+    },
+    "easing": {
+      "easeOutQuart": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      "easeInOutQuart": "cubic-bezier(0.77, 0, 0.175, 1)",
+      "linear": "linear"
+    },
+    "pageLoad": {
+      "strategy": "Staggered fade-in with upward translation",
+      "timing": "100-200ms stagger between elements",
+      "effect": "opacity: 0 → 1, transform: translateY(20px) → 0",
+      "duration": "0.6s each"
+    },
+    "hover": {
+      "buttons": "color shift (to orange), subtle scale (1.05), shadow glow",
+      "cards": "border glow, slight upward lift, subtle shadow expansion",
+      "icons": "color shift to orange, scale 1.1",
+      "links": "orange underline appears with bounce animation"
+    },
+    "scroll": {
+      "parallax": "Subtle: background moves slower than foreground (0.5-0.8x speed)",
+      "reveal": "Elements fade in as they enter viewport (Intersection Observer)",
+      "accent": "Orange accent lines grow/animate on scroll into view"
+    },
+    "loading": {
+      "style": "Minimal spinner or dot pulse",
+      "color": "#ff6b35",
+      "effect": "Pulsing opacity or rotating border-top"
+    },
+    "reducedMotion": "Respect prefers-reduced-motion; disable all transitions for accessibility"
+  },
+
+  "backgrounds": {
+    "philosophy": "Atmosphere and depth through subtle textures and gradients. No solid flat colors.",
+    "defaults": {
+      "page": "#0a0a0a base with optional subtle grain overlay",
+      "grain": {
+        "description": "Analog warmth: add noise texture",
+        "opacity": "0.02-0.05 (barely visible)",
+        "filter": "backdrop-filter: brightness(1.02) or custom SVG noise"
+      },
+      "gradient": "Avoid full-page gradients; use as accent overlays only"
+    },
+    "heroSection": {
+      "type": "Dark with radial gradient accent",
+      "background": "radial-gradient(circle at 30% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 60%)",
+      "overlay": "Optional noise texture for depth"
+    },
+    "accentBg": {
+      "type": "Subtle orange glow regions",
+      "effect": "Linear or radial gradient with opacity 0.05-0.1"
+    },
+    "vignette": {
+      "effect": "Edges fade to darker black (optional cinematic touch)",
+      "implementation": "box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5)"
+    }
+  },
+
+  "visualDetails": {
+    "shadows": {
+      "small": "0 2px 8px rgba(0, 0, 0, 0.4)",
+      "medium": "0 10px 30px rgba(0, 0, 0, 0.6)",
+      "large": "0 20px 60px rgba(0, 0, 0, 0.8)",
+      "glow": "0 0 20px rgba(255, 107, 53, 0.5) (orange accent element glow)"
+    },
+    "borders": {
+      "default": "1px solid #2a2a2a",
+      "accent": "1px or 2px solid #ff6b35",
+      "thickness": "1px for subtle, 2px for emphasis"
+    },
+    "glows": {
+      "orange": "box-shadow: 0 0 20px rgba(255, 107, 53, 0.5) (for accent elements)",
+      "white": "box-shadow: 0 0 20px rgba(255, 255, 255, 0.2) (for prominent elements)"
+    },
+    "curves": {
+      "borderRadius": "0px (all sharp edges for digital, modern aesthetic)"
+    },
+    "decorativeElements": [
+      "Thin accent lines (2px high, 40-80px wide, orange color)",
+      "Circular concentric shapes (like vinyl record, depth effect)",
+      "Subtle gradient mesh overlays in hero sections",
+      "Custom cursor (optional: pointed arrow or crosshair in orange)"
+    ]
+  },
+
+  "iconography": {
+    "style": "Minimal line-based, 2-3px stroke weight",
+    "sizing": "16px, 24px, 32px, 48px (use multiples of 8)",
+    "color": "#a0a0a0 (default), #ff6b35 (active/hover), #ffffff (important)",
+    "families": "Feather Icons or custom SVG line icons",
+    "behavior": "Hover: color shifts to orange, scale increases 1.1"
+  },
+
+  "responsiveness": {
+    "breakpoints": {
+      "mobile": "0-640px",
+      "tablet": "641-1024px",
+      "desktop": "1025-1280px",
+      "wide": "1281px+"
+    },
+    "typography": {
+      "h1": "48px (desktop) → 32px (tablet) → 24px (mobile)",
+      "h2": "36px (desktop) → 28px (tablet) → 20px (mobile)",
+      "body": "16px (all sizes)"
+    },
+    "spacing": {
+      "padding": "48px (desktop) → 32px (tablet) → 24px (mobile)",
+      "margin": "64px sections (desktop) → 48px (tablet) → 32px (mobile)"
+    },
+    "layout": {
+      "desktop": "Multi-column, asymmetrical",
+      "tablet": "2-3 columns, stack when needed",
+      "mobile": "Full-width single column, generous padding"
+    }
+  },
+
+  "stateStyles": {
+    "hover": {
+      "description": "Subtle, purposeful changes",
+      "patterns": [
+        "Border or glow shifts to orange",
+        "Text color to white or orange",
+        "Background subtle opacity increase",
+        "Scale 1.05 or 1.1 for emphasis"
+      ]
+    },
+    "active": {
+      "description": "More pronounced than hover",
+      "patterns": [
+        "Orange glow intensifies",
+        "Background opacity increases",
+        "Text color fully white or orange"
+      ]
+    },
+    "disabled": {
+      "description": "Reduced opacity, no interaction",
+      "opacity": "0.5",
+      "cursor": "not-allowed",
+      "color": "#6a6a6a"
+    },
+    "loading": {
+      "description": "Subtle pulse or animation",
+      "opacity": "0.7",
+      "animation": "pulse or spin at 0.8s duration"
+    },
+    "error": {
+      "description": "Red accent with clear messaging",
+      "color": "#ff6b6b",
+      "backgroundColor": "rgba(255, 107, 107, 0.1)",
+      "border": "1px solid #ff6b6b"
+    },
+    "success": {
+      "description": "Green accent with confirmation",
+      "color": "#4ade80",
+      "backgroundColor": "rgba(74, 222, 128, 0.1)",
+      "border": "1px solid #4ade80"
+    }
+  },
+
+  "designVocabulary": {
+    "descriptions": [
+      "Cinematic: Use depth, lighting, and composition like a film frame",
+      "Luxurious: Generous space, refined typography, minimal clutter",
+      "Moody: Dark palette creates intimacy and drama",
+      "Minimalist: Every element has purpose; no decoration without function",
+      "Analog warmth: Orange glow and subtle grain evoke analog electronics",
+      "Modern-noir: Dark, sophisticated, slightly mysterious aesthetic",
+      "Premium: High-end material feel through typography and spacing choices"
+    ],
+    "antiPatterns": [
+      "Avoid bright colors beyond orange accent",
+      "No rounded corners (except play button, small interactive elements)",
+      "No generic sans-serif fonts (Aptos/Segoe, not Inter or Roboto)",
+      "No centered layouts unless for major statements",
+      "No flat 2D icons; use line-based minimal icons",
+      "No clutter; embrace negative space as design feature",
+      "No excessive animations; motion is purposeful",
+      "No emojis in UI"
+    ]
+  },
+
+  "implementationGuidance": {
+    "cssStrategy": "Use CSS custom properties (variables) for all colors, spacing, and transitions. This ensures consistency across components.",
+    "fontLoading": "Use font-display: swap for custom fonts to avoid FOIT (Flash of Invisible Text)",
+    "performance": "Minimize JavaScript; prioritize CSS animations. Lazy-load images. Optimize SVG icons.",
+    "accessibility": "Ensure 4.5:1 contrast ratio (white text on dark backgrounds passes); use ARIA labels; test with keyboard navigation",
+    "testing": "Validate design on all breakpoints (mobile, tablet, desktop, wide). Test hover/active states. Verify color contrast.",
+    "componentLibrary": "Build reusable components (Button, Card, Input, Badge) as React components or Web Components with this design system baked in"
+  }
+}

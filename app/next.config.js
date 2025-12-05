@@ -13,14 +13,6 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif']
   },
 
-  // API routes configuration
-  api: {
-    responseLimit: '50mb',
-    bodyParser: {
-      sizeLimit: '50mb',
-    },
-  },
-
   // Environment variables
   env: {
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,

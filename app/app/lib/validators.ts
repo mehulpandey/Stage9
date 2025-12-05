@@ -285,3 +285,78 @@ export function validateRequest(
 
   return errors;
 }
+
+/**
+ * Project State Machine Validator
+ * Validates state transitions based on technical-spec.md
+ */
+
+export type ProjectStatus = 'draft' | 'processing' | 'ready' | 'rendering' | 'completed' | 'failed';
+
+export function canTransitionTo(currentState: ProjectStatus, newState: ProjectStatus): { valid: boolean; reason?: string } {
+  // Allow any state to transition to 'failed'
+  if (newState === 'failed') {
+    return { valid: true };
+  }
+
+  // Define valid state transitions
+  const validTransitions: Record<ProjectStatus, ProjectStatus[]> = {
+    draft: ['processing', 'failed'],
+    processing: ['ready', 'failed'],
+    ready: ['rendering', 'failed'],
+    rendering: ['completed', 'failed'],
+    completed: [], // No transitions from completed
+    failed: [], // No transitions from failed
+  };
+
+  const allowed = validTransitions[currentState]?.includes(newState);
+
+  if (!allowed) {
+    const validOptions = validTransitions[currentState] || [];
+    return {
+      valid: false,
+      reason: `Cannot transition from "${currentState}" to "${newState}". Valid transitions: ${validOptions.join(', ') || 'none'}`,
+    };
+  }
+
+  return { valid: true };
+}
+
+/**
+ * Check if project can be edited
+ */
+export function canEditProject(status: ProjectStatus): { valid: boolean; reason?: string } {
+  if (status !== 'ready') {
+    return {
+      valid: false,
+      reason: 'Can only edit projects in "ready" state',
+    };
+  }
+  return { valid: true };
+}
+
+/**
+ * Check if project can be deleted
+ */
+export function canDeleteProject(status: ProjectStatus): { valid: boolean; reason?: string } {
+  if (status === 'rendering') {
+    return {
+      valid: false,
+      reason: 'Cannot delete project while rendering is in progress',
+    };
+  }
+  return { valid: true };
+}
+
+/**
+ * Check if project can be rendered
+ */
+export function canRenderProject(status: ProjectStatus): { valid: boolean; reason?: string } {
+  if (status !== 'ready') {
+    return {
+      valid: false,
+      reason: 'Can only render projects in "ready" state',
+    };
+  }
+  return { valid: true };
+}

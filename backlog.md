@@ -574,3 +574,27 @@ Track video performance and test different versions to optimize engagement.
 - **Effort**: 4-5 weeks
 - **Team**: 1 backend engineer, 1 frontend engineer, 1 data engineer
 - **Complexity**: Medium-High
+---
+
+## Post-MVP: Authentication Enhancements (from Checkpoint 2)
+
+### Email Verification
+- Implement email verification flow for new signups
+- Send verification email with unique token
+- Verify email before allowing full account access
+
+### OAuth Providers
+- Add Google OAuth integration
+- Add GitHub OAuth integration  
+- Add social login buttons to auth pages
+
+### Forgot Password Flow
+- Implement password reset request endpoint
+- Send password reset email with secure token
+- Create password reset page with token validation
+
+### Production Infrastructure
+- Replace in-memory rate limiting with Redis
+- Integrate Sentry for error tracking and monitoring
+- Add structured logging (replace console.log)
+

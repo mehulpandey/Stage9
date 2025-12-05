@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Follow the tasks list in tasks.md. This plan has a list of todo items that you can check off as you complete them, split by logical checkpoints. We will implement this checkpoint by checkpoint. When an item has been completed, mark it complete with a [x]. 
 - If there are any new tasks not in tasks.md, come up with a plan with a list of todo items and check in with me. Once I verify the plan, add it with logical checkpoints to tasks.md.
 - Before implementation, first think through the problem and read the codebase for relevant files. Then, begin working on the todo items, marking them as complete as you go.
-- Use the frontend design skill whenever doing any UX/UI work.
+- Use the frontend-design skill whenever doing any UX/UI work.
 - Every step of the way, give me a high level explanation of what changes you made.
 - Make every task and code change you do as simple as possible. We want to avoid making any massive or complex changes. Every change should impact as little code as possible. Everything is about simplicity.
 - When a spec changes, update it in the logical place in "functional-spec.md" and/or "technical-spec.md"
@@ -353,18 +353,104 @@ When building features, reference:
 
 ## Design System & UI
 
+**CRITICAL: Design System Compliance**
+
+ALL UI components and pages MUST follow the official Stage9 Design System documented in `/design/design-system.json`. This is non-negotiable for visual consistency.
+
+**Design System Reference**:
+- **Comprehensive Guide**: `/design/design-system.json` - Complete design system with all components, colors, typography, spacing, animations
+- **Live Showcase**: `/design-system-showcase/` - Interactive demonstration of all components (runs on localhost:3001)
+- **Tailwind Config**: `/design-system-showcase/tailwind.config.js` - Complete Tailwind configuration to copy
+
+**Design Principles** (from design-system.json):
+1. **Aesthetic**: Modern noir cinematic - dark, moody, premium
+2. **Typography**: Luxury serif headings (Playfair Display, Lora) + sans-serif body (Aptos)
+3. **Colors**: Deep blacks (#0a0a0a) with glowing orange accents (#ff6b35)
+4. **Corners**: Smooth, rounded throughout (12px to 24px radius)
+5. **Interactions**: Glowing orange effects on hover/active, smooth 200-300ms transitions
+6. **Icons**: SVG icons only - NEVER use emojis
+7. **Spacing**: Generous negative space for premium feel
+
 **When Building UI Components**:
-1. Start with design system specifications (colors, typography, spacing)
-2. Use shadcn/ui pre-built components for consistency
-3. Apply Tailwind classes for customization
-4. Test on desktop and mobile
-5. Ensure accessibility (keyboard nav, ARIA labels, color contrast)
+1. **First**: Read `/design/design-system.json` to understand the design system
+2. **Reference**: Check `/design-system-showcase/app/page.tsx` for existing component implementations
+3. **Reuse**: Use components defined in design-system.json (buttons, cards, forms, modals, etc.)
+4. **Copy**: Copy Tailwind classes exactly from design system examples
+5. **Consistency**: Never deviate from color palette, typography scale, or spacing scale
+6. **Test**: Verify on desktop and mobile
+7. **Accessibility**: Ensure keyboard nav, ARIA labels, 4.5:1 contrast ratio
+
+**Component Catalog** (see design-system.json for full details):
+- **Buttons**: Primary, secondary, danger, ghost, icon, play button
+- **Forms**: Text input, textarea, select, slider, toggle
+- **Cards**: Default, interactive, feature, project
+- **Modals**: Overlay, container, header, close button
+- **Badges**: Default, status (processing/completed/failed/ready), pro
+- **Navigation**: Sidebar with collapse, nav items, user section
+- **Timeline**: Video preview, playback controls, timeline track, segment details
+- **States**: Loading, empty, error
+
+**Color Palette** (use these exact hex values):
+- Blacks: #0a0a0a (950), #141414 (900), #1a1a1a (850), #2a2a2a (800)
+- Orange: #ff6b35 (glow), #ff8a50 (light), #cc5428 (dim)
+- Text: #ffffff (primary), #a0a0a0 (secondary), #6a6a6a (tertiary)
+- Borders: #2a2a2a (default), #ff6b35 (accent)
+
+**Typography Scale**:
+- H1: 48px, Playfair Display, bold
+- H2: 36px, Lora, semibold
+- H3: 24px, Lora, semibold
+- H4: 18px, Lora, medium
+- Body: 16px, Aptos, regular
+- Small: 14px, Aptos, regular
+- XS: 12px, Aptos, regular
 
 **Component Organization**:
 - Reusable components in `app/components/`
 - Page-specific components in `app/pages/[page]/`
 - Use TypeScript for component props
 - Export types alongside components
+
+**Example Usage** (from design-system.json):
+
+Primary Button:
+```tsx
+<button className="px-2xl py-md border-2 border-orange-glow text-primary font-medium rounded-lg hover:bg-black-800 hover:shadow-glow-orange hover:scale-105 transition-all duration-300">
+  Click Me
+</button>
+```
+
+Card:
+```tsx
+<div className="bg-black-850 border border-black-800 rounded-xl p-2xl hover:border-orange-glow hover:shadow-glow-orange transition-all duration-300">
+  Card Content
+</div>
+```
+
+Text Input:
+```tsx
+<input className="w-full px-lg py-md bg-black-850 border border-black-700 rounded-lg text-primary placeholder:text-tertiary focus:border-orange-glow focus:outline-none transition-all duration-300" />
+```
+
+**Adding New Components**:
+1. Check if similar component exists in design-system.json
+2. If new pattern needed, document it in design-system.json first
+3. Add visual example to design-system-showcase
+4. Use consistent naming and styling patterns
+5. Update design-system.json with new component specs
+
+**Validation Checklist**:
+Before committing UI work, verify:
+- [ ] Uses colors from design system palette
+- [ ] Uses typography from design system scale
+- [ ] Uses spacing from design system scale (xs to 5xl)
+- [ ] Has rounded corners (not sharp edges)
+- [ ] Has orange glow on hover/active states
+- [ ] Has smooth transitions (200-300ms)
+- [ ] Uses SVG icons (no emojis)
+- [ ] Accessible (keyboard nav, ARIA labels, contrast)
+- [ ] Responsive (mobile-first approach)
+- [ ] Matches examples in design-system-showcase
 
 ---
 
